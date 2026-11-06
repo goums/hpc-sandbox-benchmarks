@@ -23,6 +23,7 @@ export interface DriverModuleMap {
 	freestyle: typeof import("@sandbox-benchmarks/freestyle").default;
 	brezel: typeof import("@sandbox-benchmarks/brezel").default;
 	digitalocean: typeof import("@sandbox-benchmarks/digitalocean").default;
+	briq: typeof import("@sandbox-benchmarks/briq").default;
 }
 
 type Assert<Condition extends true> = Condition;
@@ -58,6 +59,7 @@ export const DRIVERS: {
 	freestyle: () => import("@sandbox-benchmarks/freestyle").then((module) => module.default),
 	brezel: () => import("@sandbox-benchmarks/brezel").then((module) => module.default),
 	digitalocean: () => import("@sandbox-benchmarks/digitalocean").then((module) => module.default),
+	briq: () => import("@sandbox-benchmarks/briq").then((module) => module.default),
 });
 
 export const loadDriverModule = <P extends DriverProviderId>(id: P): Promise<DriverModuleMap[P]> =>

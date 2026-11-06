@@ -4,6 +4,7 @@ import type { ProviderArtifact, ProviderMetaModule, ProviderMetaSource } from ".
 import blaxel from "./blaxel.ts";
 import boat from "./boat.ts";
 import brezel from "./brezel.ts";
+import briq from "./briq.ts";
 import daytona_container from "./daytona-container.ts";
 import daytona_vm from "./daytona-vm.ts";
 import digitalocean from "./digitalocean.ts";
@@ -35,6 +36,7 @@ const MODULES = {
 	freestyle: freestyle,
 	brezel: brezel,
 	digitalocean: digitalocean,
+	briq: briq,
 } as const satisfies { [P in ProviderId]: ProviderMetaModule<P> };
 
 export const REGISTRY = {
@@ -54,6 +56,7 @@ export const REGISTRY = {
 	freestyle: MODULES.freestyle.meta,
 	brezel: MODULES.brezel.meta,
 	digitalocean: MODULES.digitalocean.meta,
+	briq: MODULES.briq.meta,
 } as const satisfies Record<ProviderId, ProviderMetaSource>;
 
 type IdsWithArtifact<K extends ProviderArtifact["kind"]> = {
